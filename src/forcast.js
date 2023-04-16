@@ -40,7 +40,7 @@ function Forcast(props) {
   };
 
   useEffect(() => {
-    search("Delhi");
+    search("Kolkata");
   }, []);
 
   return (
@@ -73,7 +73,7 @@ function Forcast(props) {
         </div>
         <ul>
           {typeof weather.main != "undefined" ? (
-            <div>
+            <div style={{color:"Black"}}>
               {" "}
               <li className="cityHead">
                 <p>
@@ -91,6 +91,12 @@ function Forcast(props) {
                 </span>
               </li>
               <li>
+                Wind Speed{" "}
+                <span className="temp">
+                  {Math.round(weather.wind.speed)} Km/h
+                </span>
+              </li>
+              <li>
                 Humidity{" "}
                 <span className="temp">
                   {Math.round(weather.main.humidity)}%
@@ -102,12 +108,7 @@ function Forcast(props) {
                   {Math.round(weather.visibility)} mi
                 </span>
               </li>
-              <li>
-                Wind Speed{" "}
-                <span className="temp">
-                  {Math.round(weather.wind.speed)} Km/h
-                </span>
-              </li>
+             
             </div>
           ) : (
             <li>

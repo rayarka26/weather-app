@@ -67,7 +67,7 @@ class Weather extends React.Component {
         })
         .catch((err) => {
           //If user denied location service then standard location weather will le shown on basis of latitude & latitude.
-          this.getWeather(28.67, 77.22);
+          // this.getWeather(28.67, 77.22);
           alert(
             "You have disabled location service. Allow 'This APP' to access your location. Your current location will be used for calculating Real time weather."
           );
@@ -78,7 +78,7 @@ class Weather extends React.Component {
 
     this.timerID = setInterval(
       () => this.getWeather(this.state.lat, this.state.lon),
-      600000
+      200000
     );
   }
 
@@ -162,7 +162,7 @@ class Weather extends React.Component {
               <h3>{this.state.country}</h3>
             </div>
             <div className="mb-icon">
-              {" "}
+       
               <ReactAnimatedWeather
                 icon={this.state.icon}
                 color={defaults.color}
@@ -181,10 +181,8 @@ class Weather extends React.Component {
               </div>
               <div className="temperature">
                 <p>
-                  {this.state.temperatureC}°<span>C</span>
+                  {this.state.temperatureC}°<span style={{fontWeight:"bold"}}>C</span>
                 </p>
-                {/* <span className="slash">/</span>
-                {this.state.temperatureF} &deg;F */}
               </div>
             </div>
           </div>
@@ -199,8 +197,8 @@ class Weather extends React.Component {
             Detecting your location
           </h3>
           <h3 style={{ color: "white", marginTop: "10px" }}>
-            Your current location wil be displayed on the App <br></br> & used
-            for calculating Real time weather.
+            Your Current Location will be fetched and will be displaying current weather.
+            <h2 style={{color: "white", fontWeight: "bold"}}>Be Patient Please</h2> 
           </h3>
         </React.Fragment>
       );
